@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "526470458846",
+    "project_id": "sasocial-79517",
+    "storage_bucket": "sasocial-79517.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526470458846:android:4232a2b8da41e06c20814f",
+        "android_client_info": {
+          "package_name": "com.grupo3.sasocial"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6BnZauY09zkFagI05SvIrYizdwd788CI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
