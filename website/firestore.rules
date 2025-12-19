@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Regras para a coleção 'inventory'
+    match /inventory/{productId} {
+      // Permitir leitura para todos (dashboard público)
+      allow read: if true;
+      
+      // Permitir escrita apenas para usuários autenticados (CRUD)
+      allow create, update, delete: if request.auth != null;
+    }
+    
+    // Regras para a coleção 'deliveries' (entregas/baixas)
+    match /deliveries/{deliveryId} {
+      // Permitir leitura para todos (histórico público)
+      allow read: if true;
+      
+      // Permitir escrita apenas para usuários autenticados
+      allow create, update, delete: if request.auth != null;
+    }
+    
+    // Regras para a coleção 'beneficiaryApplications' (candidaturas)
+    match /beneficiaryApplications/{applicationId} {
+      // Permitir criação para todos (formulário público)
+      allow create: if true;
+      
+      // Permitir leitura apenas para usuários autenticados (privacidade)
+      allow read: if request.auth != null;
+      
+      // Permitir atualização e exclusão apenas para usuários autenticados
+      allow update, delete: if request.auth != null;
+    }
+    
+    // Bloquear acesso a outras coleções por padrão
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
